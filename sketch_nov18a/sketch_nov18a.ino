@@ -2,9 +2,8 @@
 #include "IRremote.h"
 #include <stdlib.h>
 
-int LED_PIN = 2;
 int REMOTE_PIN = 3;
- 
+
 Stepper steppermotor(32, 8, 10, 9, 11);
 IRrecv irrecv(REMOTE_PIN);
 decode_results results;
@@ -52,7 +51,7 @@ void triggerMovingDown(){
 }
 
 void translateIR(){
-  
+
   switch(results.value)
 
   {
@@ -77,7 +76,7 @@ void translateIR(){
   case 0xFF42BD: Serial.println("7");    break;
   case 0xFF4AB5: Serial.println("8");    break;
   case 0xFF52AD: Serial.println("9");    break;
-  case 0xFFFFFFFF: break;  
+  case 0xFFFFFFFF: break;
 
   default: 
     Serial.println("weak signal");
